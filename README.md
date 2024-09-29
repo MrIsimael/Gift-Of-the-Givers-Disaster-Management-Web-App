@@ -8,6 +8,7 @@ This web application is developed for the **Gift of the Givers Foundation** to m
 - Azure SQL Database
 - C#
 - Azure DevOps
+- Visual Studio Code
 
 ## Features
 1. **User Authentication**: Secure login and registration using Azure Active Directory.

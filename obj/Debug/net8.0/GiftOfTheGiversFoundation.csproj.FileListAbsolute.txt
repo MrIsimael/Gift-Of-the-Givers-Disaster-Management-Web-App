@@ -471,3 +471,4 @@ C:\Users\Isimael\GiftOfTheGiversFoundation\obj\Debug\net8.0\refint\GiftOfTheGive
 C:\Users\Isimael\GiftOfTheGiversFoundation\obj\Debug\net8.0\GiftOfTheGiversFoundation.pdb
 C:\Users\Isimael\GiftOfTheGiversFoundation\obj\Debug\net8.0\GiftOfTheGiversFoundation.genruntimeconfig.cache
 C:\Users\Isimael\GiftOfTheGiversFoundation\obj\Debug\net8.0\ref\GiftOfTheGiversFoundation.dll
+c:\Users\Isimael\GiftOfTheGiversFoundation\obj\Debug\net8.0\GiftOfTheGiversFoundation.sourcelink.json

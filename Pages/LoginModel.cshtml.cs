@@ -43,7 +43,7 @@ namespace GiftOfTheGiversFoundation.Pages
             var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, isPersistent: false, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                return RedirectToPage("/Index"); // Redirect to home or desired page
+                return RedirectToPage("/Dashboard"); // Redirect to home or desired page
             }
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");

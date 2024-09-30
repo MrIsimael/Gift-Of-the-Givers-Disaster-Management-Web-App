@@ -46,3 +46,8 @@ button.accept-policy[b-uxcok53o3m] {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.navB[b-uxcok53o3m]{
+  background: rgb(237, 237, 237, .1);
+  backdrop-filter: blur(10px);
+}

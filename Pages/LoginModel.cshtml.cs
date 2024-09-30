@@ -20,7 +20,7 @@ namespace GiftOfTheGiversFoundation.Pages
 
         public class InputModel
         {
-            public string Username { get; set; } = string.Empty; // Set default value to avoid null
+            public string Email { get; set; } = string.Empty; // Set default value to avoid null
             public string Password { get; set; } = string.Empty; // Set default value to avoid null
         }
 
@@ -34,13 +34,13 @@ namespace GiftOfTheGiversFoundation.Pages
             }
 
             // Validate that the username and password are not empty
-            if (string.IsNullOrEmpty(Input.Username) || string.IsNullOrEmpty(Input.Password))
+            if (string.IsNullOrEmpty(Input.Email) || string.IsNullOrEmpty(Input.Password))
             {
                 ModelState.AddModelError(string.Empty, "Username and Password are required.");
                 return Page();
             }
 
-            var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, isPersistent: false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, isPersistent: false, lockoutOnFailure: false);
             if (result.Succeeded)
             {
                 return RedirectToPage("/Dashboard"); // Redirect to home or desired page

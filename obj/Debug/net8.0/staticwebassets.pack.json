@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\wwwroot\\css\\userValidation.css",
+      "PackagePath": "staticwebassets\\css\\userValidation.css"
+    },
+    {
       "Id": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

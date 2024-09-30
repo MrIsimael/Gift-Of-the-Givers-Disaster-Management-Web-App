@@ -1,0 +1,36 @@
+/* Adjust form spacing */
+.card-registration {
+    padding: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Set background image */
+  body {
+    background-image: url('/images/GiftOfTheGivers.jpg');
+    background-size: cover; /* Cover the entire area */
+    display: flex;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+  }
+  
+  /* Optional: Add some spacing to the main content */
+  main {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    
+  }
+  .content-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better text readability */
+    padding: 50px;
+    border-radius: 15px;
+    max-width: 800px; /* Limit the width of the content */
+    max-height: 800px;
+    margin: 0 auto; /* Center align horizontally */
+    z-index: 2; /* Keep content above background */
+}
+  

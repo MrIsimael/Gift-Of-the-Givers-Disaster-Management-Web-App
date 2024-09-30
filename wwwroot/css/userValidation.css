@@ -33,4 +33,7 @@
     margin: 0 auto; /* Center align horizontally */
     z-index: 2; /* Keep content above background */
 }
+ .formm {
+  background-color: rgba(255, 255, 255, 0.8);
+ }
   

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VcvUG6pTI1HDKfIbAUobfum+ECqt0AgkspSI2rY3Xm8=",
+  "Hash": "y55y2s+o3GN7wBHxMaoLN792qF40tuUXobZ66MRgzyc=",
   "Source": "GiftOfTheGiversFoundation",
   "BasePath": "_content/GiftOfTheGiversFoundation",
   "Mode": "Default",
@@ -1250,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\wwwroot\\images\\Diamond.jpg",
+      "SourceId": "GiftOfTheGiversFoundation",
+      "SourceType": "Discovered",
+      "ContentRoot": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\wwwroot\\",
+      "BasePath": "_content/GiftOfTheGiversFoundation",
+      "RelativePath": "images/Diamond.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Diamond.jpg"
     },
     {
       "Identity": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\wwwroot\\images\\GiftOfTheGivers.jpg",

@@ -5,23 +5,38 @@
 }
 
 <style>
+    /* Dashboard Background */
+    .dashboard-container {
+        max-width: 1000px; /* Adjust this value as needed */
+    }
+
+    /* Background Image for the Entire Page */
+    body {
+        background-image: url('/images/Diamond.jpg'); /* Replace with the path to your image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Keeps the image fixed while scrolling */
+    }
+
+    /* Dashboard Card Styling */
     .dashboard-card {
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
         border-radius: 15px;
         padding: 20px;
         margin-bottom: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease, transform 0.3s ease;
-        cursor: pointer; /* Makes it look clickable */
+        cursor: pointer;
     }
 
     .dashboard-card:hover {
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        transform: translateY(-5px); /* Slight lift on hover */
+        transform: translateY(-5px);
     }
 
-    .dashboard-container {
-        max-width: 1000px; /* Adjust this value as needed */
+    /* Optional: To adjust text readability over the image */
+    h1, h2, p {
+        color: #333; /* Darker color for readability */
     }
 </style>
 
@@ -31,14 +46,14 @@
 
         <div class="row">
             <div class="col-md-6">
-                <!-- Using JavaScript navigation -->
+                <!-- Clickable Card with Disaster Incident Reporting -->
                 <div class="dashboard-card" onclick="window.location.href='/DisasterIncidentReport'">
                     <h2>Disaster Incident Reporting</h2>
                     <p>Placeholder for donation chart</p>
                 </div>
             </div>
             <div class="col-md-6">
-                <!-- Using JavaScript navigation -->
+                <!-- Clickable Card with Resource Donation -->
                 <div class="dashboard-card" onclick="window.location.href='/ResourceDonation'">
                     <h2>Resource Donation</h2>
                     <p>Placeholder for active projects list</p>
@@ -48,7 +63,7 @@
 
         <div class="row mt-4">
             <div class="col-md-12">
-                <!-- Using JavaScript navigation -->
+                <!-- Clickable Card with Volunteer Management -->
                 <div class="dashboard-card" onclick="window.location.href='/VolunteerManagement'">
                     <h2>Volunteer Management</h2>
                     <p>Placeholder for resource distribution map</p>

@@ -1,5 +1,63 @@
 @page
-@model LoginModel
+@model DashboardModel
 @{
     ViewData["Title"] = "Dashboard";
+}
+
+<style>
+    .dashboard-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        cursor: pointer; /* Makes it look clickable */
+    }
+
+    .dashboard-card:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px); /* Slight lift on hover */
+    }
+
+    .dashboard-container {
+        max-width: 1000px; /* Adjust this value as needed */
+    }
+</style>
+
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="dashboard-container">
+        <h1 class="text-center mb-4">Dashboard</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Using JavaScript navigation -->
+                <div class="dashboard-card" onclick="window.location.href='/DisasterIncidentReport'">
+                    <h2>Disaster Incident Reporting</h2>
+                    <p>Placeholder for donation chart</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Using JavaScript navigation -->
+                <div class="dashboard-card" onclick="window.location.href='/ResourceDonation'">
+                    <h2>Resource Donation</h2>
+                    <p>Placeholder for active projects list</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <!-- Using JavaScript navigation -->
+                <div class="dashboard-card" onclick="window.location.href='/VolunteerManagement'">
+                    <h2>Volunteer Management</h2>
+                    <p>Placeholder for resource distribution map</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Add any dashboard-specific scripts here -->
 }

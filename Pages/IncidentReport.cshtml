@@ -1,0 +1,91 @@
+@page
+@model IncidentReportModel
+@{
+    ViewData["Title"] = "Incident Report";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<style>
+    .incident-report-form {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 120px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    body {
+        background-image: url('/images/Diamond.jpg'); /* Replace with the path to your image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Keeps the image fixed while scrolling */
+    }
+      
+</style>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-8">
+        <div class="incident-report-form">
+            <h2 class="form-header">Incident Report Form</h2>
+            <form method="post">
+                <!-- Incident Title -->
+                <div class="mb-3">
+                    <label for="incidentTitle" class="form-label">Incident Title</label>
+                    <input type="text" class="form-control" id="incidentTitle" name="IncidentTitle" placeholder="Enter a short title" required />
+                </div>
+
+                <!-- Date and Time -->
+                <div class="mb-3">
+                    <label for="incidentDateTime" class="form-label">Date and Time</label>
+                    <input type="datetime-local" class="form-control" id="incidentDateTime" name="IncidentDateTime" required />
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" name="Location" placeholder="Enter the affected area" required />
+                </div>
+
+                <!-- Disaster Type -->
+                <div class="mb-3">
+                    <label for="disasterType" class="form-label">Disaster Type</label>
+                    <select class="form-select" id="disasterType" name="DisasterType" required>
+                        <option value="" selected disabled>Select disaster type</option>
+                        <option value="Flood">Flood</option>
+                        <option value="Earthquake">Earthquake</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Hurricane">Hurricane</option>
+                        <option value="Tornado">Tornado</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="Description" rows="4" placeholder="Describe the incident in detail" required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-secondary">Submit Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

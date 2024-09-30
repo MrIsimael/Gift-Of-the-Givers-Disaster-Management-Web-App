@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\wwwroot\\images\\Diamond.jpg",
+      "PackagePath": "staticwebassets\\images\\Diamond.jpg"
+    },
+    {
       "Id": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\wwwroot\\images\\GiftOfTheGivers.jpg",
       "PackagePath": "staticwebassets\\images\\GiftOfTheGivers.jpg"
     },

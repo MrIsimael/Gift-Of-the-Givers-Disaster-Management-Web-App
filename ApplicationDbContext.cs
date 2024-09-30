@@ -10,6 +10,7 @@ namespace GiftOfTheGiversFoundation.Data
             : base(options)
         {
         }
+        public DbSet<IncidentReport> IncidentReports { get; set; } // Incident reports table
 
     }
 }

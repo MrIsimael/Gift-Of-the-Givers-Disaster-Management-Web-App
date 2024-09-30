@@ -41,11 +41,14 @@ button.accept-policy[b-uxcok53o3m] {
 }
 
 .footer[b-uxcok53o3m] {
+  background: rgb(237, 237, 237, .1);
+  backdrop-filter: blur(10px);
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+  text-align: center;
 }
 
 .navB[b-uxcok53o3m]{

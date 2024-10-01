@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GiftOfTheGiversFoundation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b48f26324562fd696603f32043b69686da6e3f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9babee391d3afbd3b6b722c5803bc82db6b9ef6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("GiftOfTheGiversFoundation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GiftOfTheGiversFoundation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

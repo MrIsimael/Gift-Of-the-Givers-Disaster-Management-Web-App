@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gCcn0IL78Es=",
+  "dgSpecHash": "84QZJRdmc1c=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\GiftOfTheGiversFoundation.csproj",
+  "projectFilePath": "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\GiftOfTheGiversFoundation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Isimael\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Isimael\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

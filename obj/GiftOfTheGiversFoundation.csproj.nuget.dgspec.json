@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\GiftOfTheGiversFoundation.csproj": {}
+    "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\GiftOfTheGiversFoundation.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\GiftOfTheGiversFoundation.csproj": {
+    "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\GiftOfTheGiversFoundation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\GiftOfTheGiversFoundation.csproj",
+        "projectUniqueName": "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\GiftOfTheGiversFoundation.csproj",
         "projectName": "GiftOfTheGiversFoundation",
-        "projectPath": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\GiftOfTheGiversFoundation.csproj",
+        "projectPath": "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\GiftOfTheGiversFoundation.csproj",
         "packagesPath": "C:\\Users\\Isimael\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Isimael\\GiftOfTheGiversFoundation\\obj\\",
+        "outputPath": "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Isimael\\AppData\\Roaming\\NuGet\\NuGet.Config",

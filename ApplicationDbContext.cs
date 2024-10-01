@@ -14,5 +14,8 @@ namespace GiftOfTheGiversFoundation.Data
 
         public DbSet<ResourceDonation> ResourceDonations { get; set; } // Resource donations table
 
+        public DbSet<Volunteer> Volunteers { get; set; }
+
+
     }
 }

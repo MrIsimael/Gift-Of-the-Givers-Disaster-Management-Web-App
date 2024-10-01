@@ -1,11 +1,11 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using GiftOfTheGiversFoundation.Models;
 using GiftOfTheGiversFoundation.Data;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace GiftOfTheGiversFoundation.Pages
 {
@@ -30,19 +30,15 @@ namespace GiftOfTheGiversFoundation.Pages
             public string PhoneNumber { get; set; } = string.Empty;
             public string Skills { get; set; } = string.Empty;
             public string Availability { get; set; } = string.Empty;
-            public List<string> PreferredTasks { get; set; } = new List<string>();
-        }
-
-        public void OnGet()
-        {
-            // Called when the page is first loaded (GET request)
+            public string PreferredTasks { get; set; } = string.Empty;
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                TempData["ErrorMessage"] = "Please correct the errors in the form.";
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                TempData["ErrorMessage"] = "Please correct the following errors: " + string.Join(", ", errors);
                 return Page();
             }
 
@@ -53,7 +49,8 @@ namespace GiftOfTheGiversFoundation.Pages
                 PhoneNumber = Input.PhoneNumber,
                 Skills = Input.Skills,
                 Availability = Input.Availability,
-                PreferredTasks = string.Join(", ", Input.PreferredTasks)
+                PreferredTasks = Input.PreferredTasks,
+                CreatedAt = DateTime.UtcNow  // Set the CreatedAt value
             };
 
             try
@@ -62,13 +59,17 @@ namespace GiftOfTheGiversFoundation.Pages
                 await _context.SaveChangesAsync();
 
                 TempData["SuccessMessage"] = "Volunteer registered successfully.";
-                return RedirectToPage("/Success"); // Redirect to a success page
+                return RedirectToPage("/Success");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error occurred while saving the volunteer registration.");
                 
-                TempData["ErrorMessage"] = "Failed to register the volunteer. Please try again.";
+                TempData["ErrorMessage"] = $"Failed to register the volunteer. Error: {ex.Message}";
+                if (ex.InnerException != null)
+                {
+                    TempData["ErrorMessage"] += $" Inner exception: {ex.InnerException.Message}";
+                }
                 return Page();
             }
         }

@@ -25,5 +25,7 @@ namespace GiftOfTheGiversFoundation.Models
         public string Availability { get; set; } = string.Empty;
 
         public string PreferredTasks { get; set; } = string.Empty; // Store as a single string
+
+        public DateTime CreatedAt { get; set; }
     }
 }

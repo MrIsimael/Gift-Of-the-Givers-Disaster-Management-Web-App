@@ -1,16 +1,14 @@
 @page
 @model VolunteerManagementModel
 @{
-    ViewData["Title"] = "VolunteerManagement";
+    ViewData["Title"] = "Volunteer Management";
 }
 
-
-
 <style>
-    .donation-form {
+    .volunteer-form {
         background-color: rgba(255, 255, 255, 0.9);
         border-radius: 15px;
-        padding: 120px;
+        padding: 40px;
         margin-bottom: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -26,47 +24,44 @@
     }
 </style>
 
-
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="col-md-8">
         <div class="volunteer-form">
             <h2 class="text-center mb-4">Volunteer Registration</h2>
             <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="Input.Name" placeholder="Enter your name" required>
+                    <label asp-for="Input.Name" class="form-label">Name</label>
+                    <input asp-for="Input.Name" class="form-control" placeholder="Enter your name">
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="Input.Email" placeholder="Enter your email" required>
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <input asp-for="Input.Email" class="form-control" placeholder="Enter your email">
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="Input.PhoneNumber" placeholder="Enter your phone number" required>
+                    <label asp-for="Input.PhoneNumber" class="form-label">Phone Number</label>
+                    <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Enter your phone number">
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="skills" class="form-label">Skills</label>
-                    <textarea class="form-control" id="skills" name="Input.Skills" rows="4" placeholder="Describe your skills and experience"></textarea>
+                    <label asp-for="Input.Skills" class="form-label">Skills</label>
+                    <textarea asp-for="Input.Skills" class="form-control" rows="4" placeholder="Describe your skills and experience"></textarea>
+                    <span asp-validation-for="Input.Skills" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="availability" class="form-label">Availability</label>
-                    <input type="text" class="form-control" id="availability" name="Input.Availability" placeholder="Enter your availability (e.g., weekends, evenings)" required>
+                    <label asp-for="Input.Availability" class="form-label">Availability</label>
+                    <input asp-for="Input.Availability" class="form-control" placeholder="Enter your availability (e.g., weekends, evenings)">
+                    <span asp-validation-for="Input.Availability" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label>Preferred Tasks</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="task1" name="Input.PreferredTasks" value="Task 1">
-                        <label class="form-check-label" for="task1">Task 1</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="task2" name="Input.PreferredTasks" value="Task 2">
-                        <label class="form-check-label" for="task2">Task 2</label>
-                    </div>
-                    <!-- Add more task options as needed -->
+                <div class="mb-3">
+                    <label asp-for="Input.PreferredTasks" class="form-label">Preferred Tasks</label>
+                    <input asp-for="Input.PreferredTasks" class="form-control" placeholder="Enter your preferred tasks">
+                    <span asp-validation-for="Input.PreferredTasks" class="text-danger"></span>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
             </form>
-
         </div>
     </div>
 </div>
@@ -85,4 +80,6 @@
     </div>
 }
 
-
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -15,10 +15,6 @@
     <style>
         main {
             height: 100vh; /* Full height of viewport */
-            background: url('/images/GiftOfTheGivers.jpg') no-repeat center center;
-            background-size: cover; /* Cover the entire area */
-            background-position: center;
-            background-attachment: fixed;
             display: flex;
             align-items: center; /* Center content vertically */
             justify-content: center; /* Center content horizontally */
@@ -27,7 +23,10 @@
 
         }
         body {
-            background: linear-gradient(135deg, #e0e0ff, #f0f0ff);
+            background-image: url('/images/GiftOfTheGivers.jpg'); /* Replace with the path to your image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Keeps the image fixed while scrolling */
         }
         .content-overlay {
             background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better text readability */
@@ -44,10 +43,14 @@
             background: rgb(237, 237, 237, .1);
             backdrop-filter: blur(10px);
         }
-        .fooṯter {
-            background: rgb(0, 0, 0, 0.6);
+        .footer {
+            background: rgb(237, 237, 237, .1);
             backdrop-filter: blur(10px);
-            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            white-space: nowrap;
+            line-height: 60px;
             text-align: center;
         }
 
@@ -79,9 +82,9 @@
         </div>
     </main>
 
-    <footer class="fooṯter mt-auto py-3 ">
-        <div class="container ">
-            <span class="text-muted">&copy; 2024 - GiftOfTheGiversFoundation - <a href="/Privacy">Privacy</a></span>
+    <footer class="border-top footer text-muted ">
+        <div class="container-fluid text-light">
+            &copy; 2024 - GiftOfTheGiversFoundation - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

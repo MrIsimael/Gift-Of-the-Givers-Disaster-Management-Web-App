@@ -3,16 +3,44 @@
 @{
     ViewData["Title"] = "Register";
 }
-
 <link rel="stylesheet" href="~/css/userValidation.css" />
+<style>
+    .content-overlay {
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: 15px;
+    }
 
-<main class="flex-shrink-0 vh-100">
-  <section class="gradient-custom">
-    <div class="container">
-        <div class="row justify-content-center align-items-center h-100 d-flex">
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    section.gradient-custom {
+        margin-top: -6rem; /* Adjust this value as needed */
+    }
+</style>
+
+<main class="flex-shrink-0 vh-100 d-flex flex-column">
+    <section class="gradient-custom h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
           <div class="col-12 col-lg-9 col-xl-7">
-            <div class="content-overlay" style="border-radius: 15px;">
-              <div class="card-body p-4 p-md-5">
+                    <div class="content-overlay">
+                        <div class="card-body">
                 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-light text-center">SignUp</h3>
                 <form method="post">
                   <div class="form-group text-light">

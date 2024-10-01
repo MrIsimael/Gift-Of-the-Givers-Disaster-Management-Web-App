@@ -12,7 +12,7 @@ public class DashboardModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public void OnGet() 
     {
 
     }

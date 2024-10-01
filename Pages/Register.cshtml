@@ -10,9 +10,15 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/userValidation.css" />
-
-<style>
-  main {
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <style>
+        main {
             height: 100vh; /* Full height of viewport */
             display: flex;
             align-items: center; /* Center content vertically */
@@ -27,35 +33,18 @@
             background-position: center;
             background-attachment: fixed; /* Keeps the image fixed while scrolling */
         }
-    .content-overlay {
-        max-width: 500px;
-        margin: 0 auto;
-        border-radius: 15px;
-    }
-
-    .card-body {
-        padding: 1rem;
-    }
-
-    .form-group {
-        margin-bottom: 0.5rem; /* Adjust this value as needed */
-    }
-
-    .form-group label {
-        font-size: 0.9rem;
-    }
-
-    .form-control {
-        font-size: 0.8rem;
-        padding: 0.5rem;
-    }
-
-    .btn {
-        font-size: 1rem;
-        padding: 1rem 1rem 1rem 1rem;
-    }
-
-    .navB{
+        .content-overlay {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better text readability */
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 600px; /* Limit the width of the content */
+            margin: 0 auto; /* Center align horizontally */
+            z-index: 2; /* Keep content above background */
+        }
+        .cta-button {
+            margin-right: 10px;
+        }
+        .navB{
             background: rgb(237, 237, 237, .1);
             backdrop-filter: blur(10px);
         }
@@ -70,10 +59,8 @@
             text-align: center;
         }
 
-    section.gradient-custom {
-        margin-top: -2rem; /* Adjust this value as needed */
-    }
-</style>
+    </style>
+</head>
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navB navbar navbar-expand-lg navbar fixed-top">
@@ -89,12 +76,59 @@
             </div>
         </nav>
     </header>
-    <main class="flex-shrink-0 vh-100 d-flex flex-column">
-        <section class="gradient-custom h-100">
-            <div class="container h-100">
-                <div class="row justify-content-center align-items-center h-100">
-                    <div class="col-12 col-lg-9 col-xl-7">
-                        <div class="content-overlay">
+    <main class="flex-shrink-0 d-flex flex-column">
+        <section class="gradient-custom">
+            <div class="row justify-content-center align-items-center">
+                <div class="container-fluid">
+                    <div class="content-overlay text-left">
+                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-light text-center">SignUp</h3>
+                        <form method="post">
+                                  <div class="form-group text-light">
+                                    <label asp-for="Input.FullName" class="form-label">Full Name</label>
+                                    <input asp-for="Input.FullName" class="form-control" placeholder="Enter your full name" required />
+                                    <span asp-validation-for="Input.FullName" class="text-danger"></span>
+                                  </div>
+                                  <div class=" form-group text-light">
+                                    <label asp-for="Input.Email" class="form-label">Email</label>
+                                    <input asp-for="Input.Email" class="form-control" type="email" placeholder="Enter your email" required />
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                  </div>
+                                  <div class="form-group text-light">
+                                    <label asp-for="Input.Password" class="form-label">Password</label>
+                                    <input asp-for="Input.Password" class="form-control" type="password" placeholder="Enter your password" required />
+                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                  </div>
+                                    <div class="mt-4 pt-2 text-center">
+                                    <button type="submit" class="btn btn-secondary btn-lg cta-button ">SignUp</button>
+                                        <div class="form-group">
+                                            <p class="text-center mt-5 mb-0 text-light">
+                                                Have already an account? <a href="/login" class="text-secondary"><u>SignIn</u></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                        </form>
+                        
+                    </div>
+                </div>        
+            </div>
+        </section>
+    </main>
+    <footer class="border-top footer text-muted ">
+        <div class="container-fluid text-light">
+            &copy; 2024 - GiftOfTheGiversFoundation - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+<!--  <div class="content-overlay">
                             <div class="card-body">
                                 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-light text-center">SignUp</h3>
                                 <form method="post">
@@ -123,22 +157,4 @@
                                   </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="border-top footer text-muted ">
-        <div class="container-fluid text-light">
-            &copy; 2024 - GiftOfTheGiversFoundation - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+                        </div> -->

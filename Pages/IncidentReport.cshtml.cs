@@ -12,35 +12,35 @@ namespace GiftOfTheGiversFoundation.Pages
 {
     public class IncidentReportModel : PageModel
     {
-        private readonly ILogger<IncidentReportModel> _logger;
-        private readonly ApplicationDbContext _context;
+        private readonly ILogger<IncidentReportModel> _logger; // Added ILogger to log errors or information
+        private readonly ApplicationDbContext _context; // Added ApplicationDbContext to access the database
 
-        public IncidentReportModel(ILogger<IncidentReportModel> logger, ApplicationDbContext context)
+        public IncidentReportModel(ILogger<IncidentReportModel> logger, ApplicationDbContext context) // Constructor injection of ILogger and ApplicationDbContext
         {
-            _logger = logger;
-            _context = context;
+            _logger = logger; // Injected ILogger to log errors or information
+            _context = context; // Injected ApplicationDbContext to access the database
         }
 
         [BindProperty]
-        public InputModel Input { get; set; } = new InputModel();
+        public InputModel Input { get; set; } = new InputModel(); // Added Input property to bind the form fields
 
-        public List<IncidentReport>? Incidents { get; set; }
+        public List<IncidentReport>? Incidents { get; set; } // Added Incidents property to display the list of incidents
 
-        public class InputModel
+        public class InputModel // This is the model for the form fields
         {
-            public string IncidentTitle { get; set; } = string.Empty;
-            public DateTime IncidentDateTime { get; set; }
-            public string Location { get; set; } = string.Empty;
-            public string DisasterType { get; set; } = string.Empty;
-            public string Description { get; set; } = string.Empty;
+            public string IncidentTitle { get; set; } = string.Empty; // Added IncidentTitle property
+            public DateTime IncidentDateTime { get; set; } // Added IncidentDateTime property
+            public string Location { get; set; } = string.Empty; // Added Location property
+            public string DisasterType { get; set; } = string.Empty; // Added DisasterType property
+            public string Description { get; set; } = string.Empty; // Added Description property
         }
 
-        public void OnGet()
+        public void OnGet() 
         {
-            LoadIncidents();
+            LoadIncidents(); 
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync() 
         {
             if (!ModelState.IsValid)
             {

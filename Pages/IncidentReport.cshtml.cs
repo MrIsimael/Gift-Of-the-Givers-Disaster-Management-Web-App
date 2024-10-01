@@ -35,54 +35,54 @@ namespace GiftOfTheGiversFoundation.Pages
             public string Description { get; set; } = string.Empty; // Added Description property
         }
 
-        public void OnGet() 
+        public void OnGet()  // This method is called when the page is loaded for the first time
         {
-            LoadIncidents(); 
+            LoadIncidents(); // Called LoadIncidents method to load the list of incidents
         }
 
-        public async Task<IActionResult> OnPostAsync() 
+        public async Task<IActionResult> OnPostAsync() // This method is called when the form is submitted
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) // Check if the form is valid or not
             {
-                TempData["ErrorMessage"] = "Please correct the errors in the form.";
-                LoadIncidents();
-                return Page();
+                TempData["ErrorMessage"] = "Please correct the errors in the form."; // If the form is not valid, then show the error message
+                LoadIncidents(); // Called LoadIncidents method to load the list of incidents
+                return Page(); // Return the page with the error message
             }
 
-            var incidentReport = new IncidentReport
+            var incidentReport = new IncidentReport // Create a new instance of IncidentReport model
             {
-                IncidentTitle = Input.IncidentTitle,
-                IncidentDateTime = Input.IncidentDateTime,
-                Location = Input.Location,
-                DisasterType = Input.DisasterType,
-                Description = Input.Description,
-                CreatedAt = DateTime.Now
+                IncidentTitle = Input.IncidentTitle, // Set the IncidentTitle property of IncidentReport model with the value of IncidentTitle property of Input model
+                IncidentDateTime = Input.IncidentDateTime, // Set the IncidentDateTime property of IncidentReport model with the value of IncidentDateTime property of Input model
+                Location = Input.Location, // Set the Location property of IncidentReport model with the value of Location property of Input model
+                DisasterType = Input.DisasterType, // Set the DisasterType property of IncidentReport model with the value of DisasterType property of Input model
+                Description = Input.Description, // Set the Description property of IncidentReport model with the value of Description property of Input model
+                CreatedAt = DateTime.Now // Set the CreatedAt property of IncidentReport model with the current date and time
             };
 
             try
             {
-                _context.IncidentReports.Add(incidentReport);
-                await _context.SaveChangesAsync();
+                _context.IncidentReports.Add(incidentReport); // Add the incident report to the database
+                await _context.SaveChangesAsync(); // Save the changes to the database
 
-                TempData["SuccessMessage"] = "Incident report submitted successfully.";
-                return RedirectToPage("/IncidentReport");
+                TempData["SuccessMessage"] = "Incident report submitted successfully."; // Show the success message
+                return RedirectToPage("/IncidentReport"); // Redirect to the IncidentReport page
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error occurred while saving the incident report.");
+                _logger.LogError(ex, "Error occurred while saving the incident report."); // Log the error message
                 
-                TempData["ErrorMessage"] = "Failed to submit the incident report. Please try again.";
-                LoadIncidents();
-                return Page();
+                TempData["ErrorMessage"] = "Failed to submit the incident report. Please try again."; // Show the error message
+                LoadIncidents(); // Called LoadIncidents method to load the list of incidents
+                return Page(); // Return the page with the error message
             }
         }
 
-        private void LoadIncidents()
+        private void LoadIncidents() // This method is used to load the list of incidents
         {
-            Incidents = _context.IncidentReports
-                .OrderByDescending(i => i.IncidentDateTime)
-                .Take(10)
-                .ToList();
+            Incidents = _context.IncidentReports // Get the list of incidents from the database
+                .OrderByDescending(i => i.IncidentDateTime) // Order the list of incidents by IncidentDateTime property in descending order
+                .Take(10) // Take only the first 10 incidents
+                .ToList(); // Convert the list of incidents to a list of IncidentReport model
         }
     }
 }

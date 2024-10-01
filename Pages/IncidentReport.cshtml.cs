@@ -2,7 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using GiftOfTheGiversFoundation.Models;
-using GiftOfTheGiversFoundation.Data; // Add this line to import ApplicationDbContext
+using GiftOfTheGiversFoundation.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GiftOfTheGiversFoundation.Pages
@@ -10,7 +13,7 @@ namespace GiftOfTheGiversFoundation.Pages
     public class IncidentReportModel : PageModel
     {
         private readonly ILogger<IncidentReportModel> _logger;
-        private readonly ApplicationDbContext _context; // Database context
+        private readonly ApplicationDbContext _context;
 
         public IncidentReportModel(ILogger<IncidentReportModel> logger, ApplicationDbContext context)
         {
@@ -18,9 +21,10 @@ namespace GiftOfTheGiversFoundation.Pages
             _context = context;
         }
 
-        // Bind the form input to this property
         [BindProperty]
         public InputModel Input { get; set; } = new InputModel();
+
+        public List<IncidentReport>? Incidents { get; set; }
 
         public class InputModel
         {
@@ -33,49 +37,52 @@ namespace GiftOfTheGiversFoundation.Pages
 
         public void OnGet()
         {
-            // Called when the page is first loaded (GET request)
+            LoadIncidents();
         }
 
         public async Task<IActionResult> OnPostAsync()
-{
-    // Validate the form input
-    if (!ModelState.IsValid)
-    {
-        TempData["ErrorMessage"] = "Please correct the errors in the form.";
-        return Page(); // Return the page if the form is invalid
-    }
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["ErrorMessage"] = "Please correct the errors in the form.";
+                LoadIncidents();
+                return Page();
+            }
 
-    // Create a new IncidentReport entity
-    var incidentReport = new IncidentReport
-    {
-        IncidentTitle = Input.IncidentTitle,
-        IncidentDateTime = Input.IncidentDateTime,
-        Location = Input.Location,
-        DisasterType = Input.DisasterType,
-        Description = Input.Description,
-        CreatedAt = DateTime.Now // Automatically set the created date
-    };
+            var incidentReport = new IncidentReport
+            {
+                IncidentTitle = Input.IncidentTitle,
+                IncidentDateTime = Input.IncidentDateTime,
+                Location = Input.Location,
+                DisasterType = Input.DisasterType,
+                Description = Input.Description,
+                CreatedAt = DateTime.Now
+            };
 
-    try
-    {
-        // Save the report to the database
-        _context.IncidentReports.Add(incidentReport);
-        await _context.SaveChangesAsync();
+            try
+            {
+                _context.IncidentReports.Add(incidentReport);
+                await _context.SaveChangesAsync();
 
-        // Set success message
-        TempData["SuccessMessage"] = "Incident report submitted successfully.";
-        return RedirectToPage("/Success"); // Redirect to a success page
-    }
-    catch (Exception ex)
-    {
-        // Log the error if needed
-        _logger.LogError(ex, "Error occurred while saving the incident report.");
-        
-        // Set failure message
-        TempData["ErrorMessage"] = "Failed to submit the incident report. Please try again.";
-        return Page(); // Return to the same page
-    }
-}
+                TempData["SuccessMessage"] = "Incident report submitted successfully.";
+                return RedirectToPage("/IncidentReport");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while saving the incident report.");
+                
+                TempData["ErrorMessage"] = "Failed to submit the incident report. Please try again.";
+                LoadIncidents();
+                return Page();
+            }
+        }
 
+        private void LoadIncidents()
+        {
+            Incidents = _context.IncidentReports
+                .OrderByDescending(i => i.IncidentDateTime)
+                .Take(10)
+                .ToList();
+        }
     }
 }

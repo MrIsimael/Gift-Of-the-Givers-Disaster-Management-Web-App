@@ -4,6 +4,26 @@
     ViewData["Title"] = "Incident Report";
 }
 
+<style>
+    .incident-report-form, .incident-list {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 40px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    body {
+        background-image: url('/images/Diamond.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+
 @if (TempData["SuccessMessage"] != null)
 {
     <div class="alert alert-success">
@@ -18,74 +38,81 @@
     </div>
 }
 
-<style>
-    .incident-report-form {
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-        padding: 120px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .form-header {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    body {
-        background-image: url('/images/Diamond.jpg'); /* Replace with the path to your image */
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed; /* Keeps the image fixed while scrolling */
-    }
-      
-</style>
+<div class="container">
+    <div class="row">
+        <!-- Incident Report Form -->
+        <div class="col-md-6">
+            <div class="incident-report-form">
+                <h2 class="form-header">Report an Incident</h2>
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="Input.IncidentTitle" class="form-label">Incident Title</label>
+                        <input asp-for="Input.IncidentTitle" class="form-control" placeholder="Enter a short title" required />
+                        <span asp-validation-for="Input.IncidentTitle" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.IncidentDateTime" class="form-label">Date and Time</label>
+                        <input asp-for="Input.IncidentDateTime" class="form-control" type="datetime-local" required />
+                        <span asp-validation-for="Input.IncidentDateTime" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.Location" class="form-label">Location</label>
+                        <input asp-for="Input.Location" class="form-control" placeholder="Enter the affected area" required />
+                        <span asp-validation-for="Input.Location" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.DisasterType" class="form-label">Disaster Type</label>
+                        <select asp-for="Input.DisasterType" class="form-select" required>
+                            <option value="" selected disabled>Select disaster type</option>
+                            <option value="Flood">Flood</option>
+                            <option value="Earthquake">Earthquake</option>
+                            <option value="Fire">Fire</option>
+                            <option value="Hurricane">Hurricane</option>
+                            <option value="Tornado">Tornado</option>
+                        </select>
+                        <span asp-validation-for="Input.DisasterType" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.Description" class="form-label">Description</label>
+                        <textarea asp-for="Input.Description" class="form-control" rows="4" placeholder="Describe the incident in detail" required></textarea>
+                        <span asp-validation-for="Input.Description" class="text-danger"></span>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-secondary">Submit Report</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="col-md-8">
-        <div class="incident-report-form">
-            <h2 class="form-header">Incident Report Form</h2>
-            <form method="post">
-                <!-- Incident Title -->
-                <div class="mb-3">
-                    <label for="incidentTitle" class="form-label">Incident Title</label>
-                    <input type="text" class="form-control" id="incidentTitle" name="IncidentTitle" placeholder="Enter a short title" required />
-                </div>
-
-                <!-- Date and Time -->
-                <div class="mb-3">
-                    <label for="incidentDateTime" class="form-label">Date and Time</label>
-                    <input type="datetime-local" class="form-control" id="incidentDateTime" name="IncidentDateTime" required />
-                </div>
-
-                <!-- Location -->
-                <div class="mb-3">
-                    <label for="location" class="form-label">Location</label>
-                    <input type="text" class="form-control" id="location" name="Location" placeholder="Enter the affected area" required />
-                </div>
-
-                <!-- Disaster Type -->
-                <div class="mb-3">
-                    <label for="disasterType" class="form-label">Disaster Type</label>
-                    <select class="form-select" id="disasterType" name="DisasterType" required>
-                        <option value="" selected disabled>Select disaster type</option>
-                        <option value="Flood">Flood</option>
-                        <option value="Earthquake">Earthquake</option>
-                        <option value="Fire">Fire</option>
-                        <option value="Hurricane">Hurricane</option>
-                        <option value="Tornado">Tornado</option>
-                    </select>
-                </div>
-
-                <!-- Description -->
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" name="Description" rows="4" placeholder="Describe the incident in detail" required></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-secondary">Submit Report</button>
-                </div>
-            </form>
+        <!-- Incident List -->
+        <div class="col-md-6">
+            <div class="incident-list">
+                <h2 class="form-header">Incidents Reported</h2>
+                @if (Model.Incidents != null && Model.Incidents.Any())
+                {
+                    <div class="list-group">
+                        @foreach (var incident in Model.Incidents)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">@(incident.IncidentTitle ?? "No Title")</h5>
+                                    <small>@incident.IncidentDateTime.ToString("g")</small>
+                                </div>
+                                <p class="mb-1">@(incident.Location ?? "Unknown Location") - @(incident.DisasterType ?? "Unknown Type")</p>
+                                <small>@(incident.Description != null ? (incident.Description.Length > 100 ? incident.Description.Substring(0, 100) + "..." : incident.Description) : "No description")</small>
+                            </a>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p>No incidents reported yet.</p>
+                }
+            </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

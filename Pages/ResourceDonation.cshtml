@@ -109,6 +109,35 @@
                 </div>
             </form>
         </div>
+
+         <!-- Donation -->
+        <div class="col-md-6">
+    <div class="donation-list">
+        <h2 class="form-header">Donations Received</h2>
+        @if (Model.Donations != null && Model.Donations.Any())
+        {
+            <div class="list-group">
+                @foreach (var donation in Model.Donations)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@donation.DonorName</h5>
+                            <small>@donation.CreatedAt.ToString("g")</small>
+                        </div>
+                        <p class="mb-1">Donated: @donation.DonationType</p>
+                        <small>Quantity: @donation.Quantity - Method: @donation.DonationMethod</small>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <p>No donations recorded yet.</p>
+        }
+    </div>
+</div>
+
+
     </div>
 </div>
 

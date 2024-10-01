@@ -22,6 +22,9 @@
         background-position: center;
         background-attachment: fixed;
     }
+    .volunteer-list {
+        margin-top: 20px;
+    }
 </style>
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -62,6 +65,31 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
             </form>
+        </div>
+
+        <!-- Volunteer List Section -->
+        <div class="volunteer-list mt-5">
+            <h2 class="form-header">Volunteers</h2>
+            @if (Model.Volunteers != null && Model.Volunteers.Any())
+            {
+                <div class="list-group">
+                    @foreach (var volunteer in Model.Volunteers)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@volunteer.Name</h5>
+                                <small>@volunteer.CreatedAt.ToString("g")</small>
+                            </div>
+                            <p class="mb-1">Skills: @volunteer.Skills</p>
+                            <small>Availability: @volunteer.Availability - Preferred Tasks: @volunteer.PreferredTasks</small>
+                        </a>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No volunteers registered yet.</p>
+            }
         </div>
     </div>
 </div>

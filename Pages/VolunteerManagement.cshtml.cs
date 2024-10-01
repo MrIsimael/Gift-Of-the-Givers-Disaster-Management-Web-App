@@ -22,6 +22,7 @@ namespace GiftOfTheGiversFoundation.Pages
 
         [BindProperty]
         public InputModel Input { get; set; } = new InputModel();
+        public List<Volunteer>? Volunteers { get; set; }
 
         public class InputModel
         {
@@ -31,6 +32,11 @@ namespace GiftOfTheGiversFoundation.Pages
             public string Skills { get; set; } = string.Empty;
             public string Availability { get; set; } = string.Empty;
             public string PreferredTasks { get; set; } = string.Empty;
+        }
+
+        public void OnGet()
+        {
+            LoadVolunteers();
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -50,7 +56,7 @@ namespace GiftOfTheGiversFoundation.Pages
                 Skills = Input.Skills,
                 Availability = Input.Availability,
                 PreferredTasks = Input.PreferredTasks,
-                CreatedAt = DateTime.UtcNow  // Set the CreatedAt value
+                CreatedAt = DateTime.UtcNow
             };
 
             try
@@ -64,7 +70,6 @@ namespace GiftOfTheGiversFoundation.Pages
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error occurred while saving the volunteer registration.");
-                
                 TempData["ErrorMessage"] = $"Failed to register the volunteer. Error: {ex.Message}";
                 if (ex.InnerException != null)
                 {
@@ -72,6 +77,14 @@ namespace GiftOfTheGiversFoundation.Pages
                 }
                 return Page();
             }
+        }
+
+        private void LoadVolunteers()
+        {
+            Volunteers = _context.Volunteers
+                .OrderByDescending(v => v.CreatedAt)
+                .Take(10)
+                .ToList();
         }
     }
 }

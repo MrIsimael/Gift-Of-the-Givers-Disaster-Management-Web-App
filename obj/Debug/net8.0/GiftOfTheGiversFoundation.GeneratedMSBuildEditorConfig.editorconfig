@@ -9,63 +9,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GiftOfTheGiversFoundation
 build_property.RootNamespace = GiftOfTheGiversFoundation
-build_property.ProjectDir = c:\Users\Isimael\GiftOfTheGiversFoundation\
+build_property.ProjectDir = C:\Users\Isimael\Gift-Of-the-Givers-Disaster-Management-Web-App\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = c:\Users\Isimael\GiftOfTheGiversFoundation
+build_property.MSBuildProjectDirectory = C:\Users\Isimael\Gift-Of-the-Givers-Disaster-Management-Web-App
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Dashboard.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Error.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/IncidentReport.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/IncidentReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5jaWRlbnRSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Index.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Login.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Privacy.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Register.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/ResourceDonation.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/ResourceDonation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzb3VyY2VEb25hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Success.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Success.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/_ViewImports.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/VolunteerManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVm9sdW50ZWVyTWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/_ViewStart.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Isimael/GiftOfTheGiversFoundation/Pages/Shared/_Layout.cshtml]
+[c:/Users/Isimael/Gift-Of-the-Givers-Disaster-Management-Web-App/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-uxcok53o3m

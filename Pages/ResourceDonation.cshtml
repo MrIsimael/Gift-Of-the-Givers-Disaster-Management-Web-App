@@ -4,20 +4,6 @@
     ViewData["Title"] = "Resource Donation";
 }
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
-
 <style>
     .donation-form {
         background-color: rgba(255, 255, 255, 0.9);
@@ -127,4 +113,18 @@
             dropoffRadio.addEventListener('change', toggleAddressField);
         });
     </script>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
 }

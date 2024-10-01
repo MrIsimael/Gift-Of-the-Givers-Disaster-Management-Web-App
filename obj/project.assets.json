@@ -5816,11 +5816,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Isimael\\GiftOfTheGiversFoundation\\GiftOfTheGiversFoundation.csproj",
+      "projectUniqueName": "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\GiftOfTheGiversFoundation.csproj",
       "projectName": "GiftOfTheGiversFoundation",
-      "projectPath": "C:\\Users\\Isimael\\GiftOfTheGiversFoundation\\GiftOfTheGiversFoundation.csproj",
+      "projectPath": "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\GiftOfTheGiversFoundation.csproj",
       "packagesPath": "C:\\Users\\Isimael\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Isimael\\GiftOfTheGiversFoundation\\obj\\",
+      "outputPath": "C:\\Users\\Isimael\\Gift-Of-the-Givers-Disaster-Management-Web-App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Isimael\\AppData\\Roaming\\NuGet\\NuGet.Config",

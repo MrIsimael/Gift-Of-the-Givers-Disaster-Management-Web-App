@@ -1,0 +1,130 @@
+@page
+@model ResourceDonationModel
+@{
+    ViewData["Title"] = "Resource Donation";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<style>
+    .donation-form {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 120px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    body {
+        background-image: url('/images/Diamond.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-8">
+        <div class="donation-form">
+            <h2 class="form-header">Resource Donation Form</h2>
+            <form method="post">
+                <!-- Donor Name -->
+                <div class="mb-3">
+                    <label for="donorName" class="form-label">Donor Name</label>
+                    <input type="text" class="form-control" id="donorName" name="DonorName" placeholder="Enter your full name" required />
+                </div>
+
+                <!-- Donor Contact -->
+                <div class="mb-3">
+                    <label for="donorContact" class="form-label">Contact Information</label>
+                    <input type="text" class="form-control" id="donorContact" name="DonorContact" placeholder="Enter your email or phone number" required />
+                </div>
+
+                <!-- Donation Type -->
+                <div class="mb-3">
+                    <label for="donationType" class="form-label">Donation Type</label>
+                    <select class="form-select" id="donationType" name="DonationType" required>
+                        <option value="" selected disabled>Select donation type</option>
+                        <option value="Food">Food</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="MedicalSupplies">Medical Supplies</option>
+                        <option value="Shelter">Shelter Supplies</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" name="Quantity" min="1" placeholder="Enter the quantity" required />
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="Description" rows="4" placeholder="Describe the donation in detail (e.g., type of food, sizes of clothing)" required></textarea>
+                </div>
+
+                <!-- Pickup or Drop-off -->
+                <div class="mb-3">
+                    <label class="form-label">Donation Method</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="DonationMethod" id="pickup" value="Pickup" required>
+                        <label class="form-check-label" for="pickup">
+                            I need the donation to be picked up
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="DonationMethod" id="dropoff" value="Dropoff" required>
+                        <label class="form-check-label" for="dropoff">
+                            I will drop off the donation
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Address (for pickup) -->
+                <div class="mb-3" id="addressField" style="display: none;">
+                    <label for="address" class="form-label">Pickup Address</label>
+                    <input type="text" class="form-control" id="address" name="Address" placeholder="Enter your address for pickup">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-secondary">Submit Donation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pickupRadio = document.getElementById('pickup');
+            const dropoffRadio = document.getElementById('dropoff');
+            const addressField = document.getElementById('addressField');
+
+            function toggleAddressField() {
+                addressField.style.display = pickupRadio.checked ? 'block' : 'none';
+            }
+
+            pickupRadio.addEventListener('change', toggleAddressField);
+            dropoffRadio.addEventListener('change', toggleAddressField);
+        });
+    </script>
+}
